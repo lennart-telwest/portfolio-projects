@@ -32,4 +32,6 @@ francs = media.Movie("39,90",
                         "https://youtu.be/DiyWOU0doLc")
 
 movies = [single_man, big_short, inception, social_network, francs, avatar]
+# This function call uses list of movie instances as input to generate an HTML file
+# and open it in the browser
 fresh_tomatoes.open_movies_page(movies)
