@@ -1,9 +1,9 @@
-# IPND Stage 2 Final Project
-# Fill-in-the-Blanks Quiz
+"""IPND Stage 2 Final Project
+Fill-in-the-Blanks Quiz"""
 
-# This quiz will prompt a user with a paragraph containing several blanks.
-# The user should then be asked to fill in each blank appropriately to complete the paragraph.
-# This can be used as a study tool to help you remember important vocabulary!
+""" This quiz will prompt a user with a paragraph containing several blanks.
+The user should then be asked to fill in each blank appropriately to complete the paragraph.
+This can be used as a study tool to help you remember important vocabulary!"""
 
 instruction ='''This quiz will prompt you with a paragraph containing several blanks which you'll need to fill.
 Each blank contains a little number and can appear multiple times, so read through the text carefully.
@@ -19,7 +19,7 @@ hard_replacement_vars = [['___1___', 'limit'], ['___2___', 'CLT'], ['___3___', '
 
 
 def set_quiz():
-    # set quiz text dependant on the difficulty variable
+    """set quiz text dependant on the difficulty variable"""
     if difficulty == 'easy':
         quiz = easy_quiz
         return quiz
@@ -33,7 +33,7 @@ def set_quiz():
         print 'Quiz not found'
 
 def set_replacement_vars():
-    # set quiz text replacement vars dependant on the difficulty variable
+    """set quiz text replacement vars dependant on the difficulty variable"""
     if difficulty == 'easy':
         replacement_vars = easy_replacement_vars
         return replacement_vars
@@ -47,16 +47,16 @@ def set_replacement_vars():
         print 'Quiz not found'
 
 def input_game_difficulty():
-    # Asking the user to choose between 'easy', 'moderate' or 'hard'
-    # Validating the response and returning the chosen difficulty
+    """Asking the user to choose between 'easy', 'moderate' or 'hard'
+    Validating the response and returning the chosen difficulty"""
     difficulty = raw_input("Choose the difficulty! Enter 'easy', 'moderate' or 'hard' and hit enter: ")
     while difficulty not in ('easy', 'moderate', 'hard'):
         raw_input("Sorry, I did not unterstand that! Please choose between 'easy', 'moderate' and 'hard': ")
     return difficulty
 
 def input_num_tries():
-    # Asking the pick number of allowed tries
-    # see https://docs.python.org/2/tutorial/errors.html -> 8.3. Handling Exceptions
+    """Asking the pick number of allowed tries
+    see https://docs.python.org/2/tutorial/errors.html -> 8.3. Handling Exceptions"""
     while True:
         try:
             tries = int(raw_input("Tweak the difficulty! Choose the max number of tries: "))
@@ -65,7 +65,7 @@ def input_num_tries():
             print("Oops!  That was no valid number.  Try again...")
 
 def get_solution(word, solution, replacement_vars):
-    # Goes through the [placeholder, solution] list and checks for the correct pair.
+    """Goes through the [placeholder, solution] list and checks for the correct pair."""
     tries = 0
     while True:
         user_solution = raw_input("Which word can be used to replace " + str(word) + " ?")
@@ -80,7 +80,7 @@ def get_solution(word, solution, replacement_vars):
             print("Sorry, that was not correct. Try again!")
 
 def replace_quiz(quiz, replacement_holders):
-    # checks for placeholders, promts the user for solution and replaces them with those
+    """checks for placeholders, promts the user for solution and replaces them with those"""
     for replacement_holder in replacement_holders:
         blank = replacement_holder[0]
         solution = replacement_holder[1]
@@ -89,10 +89,13 @@ def replace_quiz(quiz, replacement_holders):
         print quiz
     print("Awesome, you made it.")
 
-print instruction
-difficulty = input_game_difficulty()
-quiz = set_quiz()
-replacement_vars = set_replacement_vars()
-allowed_tries = input_num_tries()
-print quiz
-replace_quiz(quiz, replacement_vars)
+def main():
+    print instruction
+    difficulty = input_game_difficulty()
+    quiz = set_quiz()
+    replacement_vars = set_replacement_vars()
+    allowed_tries = input_num_tries()
+    print quiz
+    replace_quiz(quiz, replacement_vars)
+
+main()
