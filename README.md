@@ -1,3 +1,3 @@
-# udacity-projects
+# Lennart Telwests private projects
 
-Project submissions for Udacitys Nanodegree.
+mostly project submissions for Udacities nanodegree

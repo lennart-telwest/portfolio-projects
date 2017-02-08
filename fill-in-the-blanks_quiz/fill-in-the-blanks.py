@@ -1,5 +1,4 @@
-"""IPND Stage 2 Final Project
-Fill-in-the-Blanks Quiz"""
+"""Fill-in-the-Blanks Quiz"""
 
 """ This quiz will prompt a user with a paragraph containing several blanks.
 The user should then be asked to fill in each blank appropriately to complete the paragraph.
